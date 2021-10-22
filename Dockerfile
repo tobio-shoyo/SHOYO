@@ -64,10 +64,10 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-RUN git clone -b Stable https://github.com/IzumiCypherX/EmiliaAnimeBot /app
+RUN git clone -b main https://github.com/tobio-shoyo/SHOYO /app
 WORKDIR /app
 
-COPY ./EmiliaAnimeBot/sample_config.py ./EmiliaAnimeBot/config.py* /app/EmiliaAnimeBot/
+COPY ./ShoyoBot/sample_config.py ./ShoyoBot/config.py* /app/ShoyoBot/
 
 ENV PATH="/home/bot/bin:$PATH"
 
@@ -75,4 +75,4 @@ ENV PATH="/home/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","EmiliaAnimeBot"]
+CMD ["python3","-m","ShoyoBot"]
